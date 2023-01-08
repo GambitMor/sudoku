@@ -22,7 +22,7 @@ class Game(object):
 		# self.myBoard.fill_section_8()
 		# self.myBoard.fill_section_9()
 
-		self.rules.check_matches_section_1()
+		self.rules.check_matches_section_1(self.myBoard.b)
 
 		self.myBoard.display_board()
 

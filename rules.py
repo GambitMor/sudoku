@@ -4,7 +4,6 @@ import numpy as np
 
 class Rules(object):
 	def __init__(self):
-		self.myBoard = Board()
 		self.player = Player("Ally")
 
 
@@ -35,17 +34,43 @@ class Rules(object):
 						  (self.board[78], self.board[79], self.board[80]))
 
 		
-	def check_matches_section_1(self):
-		self.board = list(map(str, self.myBoard.b))
+	def check_matches_section_1(self, board):
+		self.board = board
 		print(self.board)
 		self.section_1 = [[self.board[0], self.board[1], self.board[2]], 
-							[self.board[9], self.myBoard.b[10], self.board[11]],
+							[self.board[9], self.board[10], self.board[11]],
 							[self.board[18], self.board[19], self.board[20]]]
 		print(self.section_1)
+		arr1 = []
 		for i in range(len(self.section_1) - 1):
-			for j in range(i + 1, len(self.section_1)):
-				if self.section_1[i] == self.section_1[j]:
-					print("wrong value")
+			x = self.fx(self.board)
+			print('x = ', x)
+			if str(self.section_1[i]) == "-":
+				self.section_1[i] = str(x)
+
+		print(self.section_1)		
+
+	def fx(self, board):
+		written_numbers = []
+		# print("written_numbers", written_numbers)
+		print('board = ', board)
+		for num in board:
+			if num != "-":
+				written_numbers.append(num)
+
+		print('written_numbers = ', written_numbers)
+		x = 1
+		for el in written_numbers:
+			print('el = ', el)
+			if el == x:
+				x = x + 1
+				
+
+
+
+		return x
+
+
 
 	def check_matches_section_2(self):
 		for i in range(section_2 - 1):
