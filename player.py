@@ -1,4 +1,7 @@
 class Player(object):
-	def __init__(self):
-        self.name = name
-		
+
+
+	def __init__(self, name):
+		self.name = name
+	
+	
